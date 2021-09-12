@@ -28,9 +28,22 @@ class HelloApiView(APIView):
             name = serializer.validated_data.get('name')
             message = f'Hello {name}'
             return Response({'message': message})
-
         else: 
             return Response(
                 serializer.errors,
                 status=status.HTTP_400_BAD_REQUEST
             )
+
+    def put(self, request, pk=None):
+        """ Maneja actualizar un objeto """
+        return Response({'method': 'PUT'})
+
+    def patch(self, request, pk=None):
+        """ Actualización parcial de un objeto """
+        return Response({'method':'PATCH'})
+
+    def delete(self, request, pk=None):
+        """ Borrar un objeto """
+        return Response({'method':'DELETE'})
+
+    
